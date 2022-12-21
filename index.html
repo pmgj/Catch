@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Catch</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="icon" type="image/svg" href="favicon.svg" />
+    <script type="module" src="scripts/GUI.js"></script>
+</head>
+
+<body>
+    <table id="board">
+        <caption>Catch</caption>
+        <tbody></tbody>
+    </table>
+    <p>Board size: <input type="number" id="size" value="8" min="4" step="2" /> <input type="button" value="Start"
+            id="start" /></p>
+    <p id="message"></p>
+    <table id="score">
+        <thead>
+            <tr>
+                <th>Blue</th>
+                <th>Red</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

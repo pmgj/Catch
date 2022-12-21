@@ -1,0 +1,64 @@
+body {
+    --p1-color: blue;
+    --p2-color: red;
+}
+
+#board caption {
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+#board, #score {
+    margin: 0 auto;
+}
+
+#board td {
+    border: 3px solid black;
+    text-align: center;
+    --cell-size: 8vmin;
+    width: clamp(30px, var(--cell-size), 50px);
+    height: clamp(30px, var(--cell-size), 50px);
+}
+
+p {
+    text-align: center;
+}
+
+input {
+    width: 50px;
+}
+
+.PLAYER1 {
+    background-color: var(--p1-color);
+}
+
+.PLAYER2 {
+    background-color: var(--p2-color);
+}
+
+.X_PLAYER1, .X_PLAYER2 {
+    font-size: 1.5em;
+}
+
+.X_PLAYER1 {
+    color: var(--p1-color);
+}
+
+.X_PLAYER2 {
+    color: var(--p2-color);
+}
+
+#score {
+    border-collapse: collapse;
+}
+
+#score th, #score td {
+    border-top: 1px solid black;
+    padding: 0.3em;
+    text-align: center;
+}
+
+#score td {
+    border-bottom: 1px solid black;
+}
