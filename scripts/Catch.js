@@ -48,6 +48,12 @@ export default class Catch {
         return new MoveResult(end, [endCell, nextCell], points);
     }
     endOfGame() {
+        if (this.turn === Player.PLAYER1 && !this.canPlay(Player.PLAYER1)) {
+            return Winner.PLAYER2;
+        }
+        if (this.turn === Player.PLAYER2 && !this.canPlay(Player.PLAYER2)) {
+            return Winner.PLAYER1;
+        }
         if (this.board.flat().some(c => c === CellState.EMPTY)) {
             return Winner.NONE;
         }
@@ -61,6 +67,18 @@ export default class Catch {
             return Winner.DRAW;
         }
         return Winner.NONE;
+    }
+    canPlay(player) {
+        for (let i = 0; i < this.rows; i++) {
+            for (let j = 0; j < this.cols; j++) {
+                let nextCell = player === Player.PLAYER1 ? new Cell(i + 1, j) : new Cell(i, j + 1);
+                let { x: a, y: b } = nextCell;
+                if (this.board[i][j] === CellState.EMPTY && this.onBoard(nextCell) && this.board[a][b] === CellState.EMPTY) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     markPoints() {
         let playerPoints = [];
@@ -170,7 +188,7 @@ export default class Catch {
                         playerPoints.push(nextCell2);
                     }
                 }
-           }
+            }
         }
         return playerPoints;
     }

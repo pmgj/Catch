@@ -30,6 +30,7 @@ export default class GUI {
         let objs = { DRAW: "Draw!", PLAYER2: "Red's win!", PLAYER1: "Blue's win!" };
         if (objs[m]) {
             this.setMessage(`Game Over! ${objs[m]}`);
+            document.querySelectorAll("#board td").forEach(td => td.onclick = undefined);
         } else {
             let msgs = { PLAYER1: "Blue's turn.", PLAYER2: "Red's turn." };
             this.setMessage(msgs[this.game.getTurn()]);
